@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "727288926933",
+    "firebase_url": "https://thaiherb-b276f.firebaseio.com",
+    "project_id": "thaiherb-b276f",
+    "storage_bucket": "thaiherb-b276f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727288926933:android:0dbf8c1dd11719f345085c",
+        "android_client_info": {
+          "package_name": "com.tat.thai_herb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727288926933-qcitiubq47c1i16r7h89i710f3t5c8sl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxMc0JWMzvNUbTtpaZTKE07JRvO0n187g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727288926933-qcitiubq47c1i16r7h89i710f3t5c8sl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727288926933:android:ca2c8cd14d3f8056",
+        "android_client_info": {
+          "package_name": "com.wongrawee.thaiherb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727288926933-bav33nr1i021phms9gtu4os26q92npdb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wongrawee.thaiherb",
+            "certificate_hash": "bb51971b951c777ec79a078b3ed9dffd83e4ce7d"
+          }
+        },
+        {
+          "client_id": "727288926933-qcitiubq47c1i16r7h89i710f3t5c8sl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxMc0JWMzvNUbTtpaZTKE07JRvO0n187g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727288926933-qcitiubq47c1i16r7h89i710f3t5c8sl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
