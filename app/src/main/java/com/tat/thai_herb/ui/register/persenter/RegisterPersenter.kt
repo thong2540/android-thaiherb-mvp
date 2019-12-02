@@ -10,7 +10,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
-import com.tat.thai_herb.model.User
+import com.tat.thai_herb.model.request.User
 import com.tat.thai_herb.ui.register.RegisterView
 import java.util.*
 
@@ -26,9 +26,7 @@ class RegisterPersenter(private val view: RegisterView.View) {
     init {
         firebaseStore = FirebaseStorage.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
-
         firebaseAuth = FirebaseAuth.getInstance()
-        databaseReference = FirebaseDatabase.getInstance().getReference("NewUser")
     }
 
     fun uploadImage(filePath: Uri) {
@@ -65,9 +63,20 @@ class RegisterPersenter(private val view: RegisterView.View) {
                     firebaseUser = firebaseAuth?.currentUser
                     var userId: String? = null
                     if (firebaseUser != null) userId = firebaseUser?.uid!!
-                    databaseReference!!.child(userId!!)
 
-                    databaseReference!!.setValue(User(name, email, image, userId, "0", "0", "0"))
+                    databaseReference = FirebaseDatabase.getInstance().getReference("NewUser").child(userId!!)
+
+                    databaseReference!!.setValue(
+                        User(
+                            name,
+                            email,
+                            image,
+                            userId,
+                            "0",
+                            "0",
+                            "0"
+                        )
+                    )
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
                                 view.hideLoding()

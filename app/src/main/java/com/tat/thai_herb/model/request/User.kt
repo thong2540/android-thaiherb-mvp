@@ -1,4 +1,4 @@
-package com.tat.thai_herb.model
+package com.tat.thai_herb.model.request
 
 data class User(
     val username: String,

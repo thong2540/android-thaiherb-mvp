@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlinx-serialization'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -13,6 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -61,6 +64,10 @@ dependencies {
 
     //loading
     implementation 'eu.micer:circlesloadingindicator:0.0.2'
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.14.0" // JVM dependency
 
 }
 apply plugin: 'com.google.gms.google-services'
