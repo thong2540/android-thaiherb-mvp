@@ -8,12 +8,14 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.tat.thai_herb.R
 import com.tat.thai_herb.listener.RecyclerViewCallBack
+import com.tat.thai_herb.model.respone.DataList
+
 
 class HomeAdapter(var context: Context) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
     private lateinit var adapter: ItemRecyclerViewAdapterHome
+    var itemList: List<DataList> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater
@@ -23,9 +25,17 @@ class HomeAdapter(var context: Context) : RecyclerView.Adapter<HomeAdapter.ViewH
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+        val item = itemList[position]
+        var itemAll = itemList[position].system[1].symptom_list
+
+        holder.textShoweTitwlItem.text = item.key
+
         adapter = ItemRecyclerViewAdapterHome(context)
-        holder.itemRecyclerViewHome.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL!!,false)
+        holder.itemRecyclerViewHome.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        adapter.itemList = itemAll
         holder.itemRecyclerViewHome.adapter = adapter
+        adapter.notifyDataSetChanged()
 
         holder.herderClickItem.setOnClickListener {
 
@@ -39,7 +49,7 @@ class HomeAdapter(var context: Context) : RecyclerView.Adapter<HomeAdapter.ViewH
     }
 
     override fun getItemCount(): Int {
-        return 5
+        return itemList.size
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

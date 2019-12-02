@@ -7,12 +7,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.tat.thai_herb.R
 import com.tat.thai_herb.listener.RecyclerViewCallBack
+import com.tat.thai_herb.model.respone.SymptomList
 
 class ItemRecyclerViewAdapterHome(var context: Context) : RecyclerView.Adapter<ItemRecyclerViewAdapterHome.ViewHolder>() {
 
     private lateinit var listener: RecyclerViewCallBack
+
+    var itemList: List<SymptomList> = arrayListOf()
+
 
     fun setOnSelectItemViewListener(listener: RecyclerViewCallBack) {
         this.listener = listener
@@ -26,13 +31,17 @@ class ItemRecyclerViewAdapterHome(var context: Context) : RecyclerView.Adapter<I
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = itemList[position]
+        Glide.with(context).load(item.image).into(holder.imgHerb)
+        holder.textHerb.text = item.title
+
         holder.itemView.setOnClickListener {
             this.listener.onClickItem(position)
         }
     }
 
     override fun getItemCount(): Int {
-        return 5
+        return itemList.size
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

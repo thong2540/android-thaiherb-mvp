@@ -4,8 +4,6 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'kotlinx-serialization'
-
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -67,7 +65,7 @@ dependencies {
 
     implementation 'com.android.support:multidex:1.0.3'
 
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.14.0" // JVM dependency
+    implementation 'com.google.code.gson:gson:2.8.6'
 
 }
 apply plugin: 'com.google.gms.google-services'

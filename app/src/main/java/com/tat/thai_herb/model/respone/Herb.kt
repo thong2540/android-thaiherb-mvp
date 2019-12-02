@@ -1,30 +1,28 @@
 package com.tat.thai_herb.model.respone
 
-import kotlinx.serialization.SerialName
+import com.google.firebase.database.IgnoreExtraProperties
 
-
+@IgnoreExtraProperties
 data class Herb (
-    val data: List<DataList>? = null
+    val data: List<DataList> = arrayListOf()
 )
 
+@IgnoreExtraProperties
 data class DataList (
-    val key: String? = null,
-    val system: List<SystemElement>? = null
+    val key: String = "",
+    val system: List<SystemElement> = arrayListOf()
 )
 
+@IgnoreExtraProperties
 data class SystemElement (
-    @SerialName("symptom_name")
-    val symptomName: String? = null,
-
-    @SerialName("symptom_list")
-    val symptomList: List<SymptomList>? = null
+    val symptom_name: String = "",
+    val symptom_list: List<SymptomList> = arrayListOf()
 )
 
+@IgnoreExtraProperties
 data class SymptomList (
-    @SerialName("herb_name")
-    val herbName: String? = null,
-
-    val description: String? = null,
-    val image: String? = null,
-    val title: String? = null
+    val herb_name: String = "",
+    val description: String = "",
+    val image: String = "",
+    val title: String = ""
 )
