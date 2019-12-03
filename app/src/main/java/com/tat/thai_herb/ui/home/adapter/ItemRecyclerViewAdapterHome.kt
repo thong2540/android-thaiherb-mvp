@@ -8,16 +8,21 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.tat.thai_herb.R
 import com.tat.thai_herb.listener.RecyclerViewCallBack
 import com.tat.thai_herb.model.respone.SymptomList
+
 
 class ItemRecyclerViewAdapterHome(var context: Context) : RecyclerView.Adapter<ItemRecyclerViewAdapterHome.ViewHolder>() {
 
     private lateinit var listener: RecyclerViewCallBack
+    private var itemList: List<SymptomList> = arrayListOf()
 
-    var itemList: List<SymptomList> = arrayListOf()
-
+    fun setData(data: List<SymptomList>) {
+        if (itemList !== data) {
+            itemList = data
+            notifyDataSetChanged()
+        }
+    }
 
     fun setOnSelectItemViewListener(listener: RecyclerViewCallBack) {
         this.listener = listener
@@ -26,7 +31,7 @@ class ItemRecyclerViewAdapterHome(var context: Context) : RecyclerView.Adapter<I
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.item_recyclerview_herbs, parent, false)
+            .inflate(com.tat.thai_herb.R.layout.item_recyclerview_herbs, parent, false)
         return ViewHolder(itemView)
     }
 
@@ -45,8 +50,7 @@ class ItemRecyclerViewAdapterHome(var context: Context) : RecyclerView.Adapter<I
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var imgHerb: ImageView = view.findViewById(R.id.imgHerb)
-        var textHerb: TextView = view.findViewById(R.id.textHerb)
-        var textClick: TextView = view.findViewById(R.id.textClick)
+        var imgHerb: ImageView = view.findViewById(com.tat.thai_herb.R.id.imgHerb)
+        var textHerb: TextView = view.findViewById(com.tat.thai_herb.R.id.textHerb)
     }
 }
