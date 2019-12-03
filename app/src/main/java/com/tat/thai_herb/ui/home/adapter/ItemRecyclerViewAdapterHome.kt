@@ -1,4 +1,4 @@
-package com.tat.thai_herb.ui.home
+package com.tat.thai_herb.ui.home.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

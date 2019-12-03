@@ -10,6 +10,7 @@ data class Herb (
 @IgnoreExtraProperties
 data class DataList (
     val key: String = "",
+    val title: String = "",
     val system: List<SystemElement> = arrayListOf()
 )
 

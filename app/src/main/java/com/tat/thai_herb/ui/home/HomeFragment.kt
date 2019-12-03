@@ -9,7 +9,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.tat.thai_herb.R
+import com.tat.thai_herb.listener.RecyclerViewCallBack
 import com.tat.thai_herb.model.respone.DataList
+import com.tat.thai_herb.model.respone.Herb
+import com.tat.thai_herb.model.respone.SymptomList
+import com.tat.thai_herb.ui.home.adapter.HomeAdapter
 import com.tat.thai_herb.ui.home.presenter.HomePresenter
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
@@ -17,6 +21,7 @@ class HomeFragment : Fragment(),HomeView.View {
 
     private lateinit var presenter: HomePresenter
     private lateinit var homeAdapter: HomeAdapter
+    var dataList: List<DataList> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,9 +49,21 @@ class HomeFragment : Fragment(),HomeView.View {
         view!!.imageViewDelete.setOnClickListener {
             view.editTextSearchHome.setText("")
         }
+
+        homeAdapter.setOnDataRecyclerViewListener(object :RecyclerViewCallBack {
+            override fun onClickItem(position: Int) {
+
+            }
+
+            override fun onPresentData(data: SymptomList) {
+
+            }
+
+        })
     }
 
     override fun itemDataHerb(item: List<DataList>) {
+        dataList = item
         homeAdapter.itemList = item
         homeAdapter.notifyDataSetChanged()
     }

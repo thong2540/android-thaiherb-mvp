@@ -27,6 +27,7 @@
                     android:cursorVisible="false"
                     android:textColorHint="@color/greyDark"
                     android:textSize="14sp"
+                    android:imeOptions="actionDone"
                     android:paddingTop="4dp"
                     android:paddingBottom="4dp"
                     android:inputType="text"
