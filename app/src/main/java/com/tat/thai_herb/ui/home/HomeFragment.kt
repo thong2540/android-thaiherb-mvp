@@ -1,12 +1,16 @@
 package com.tat.thai_herb.ui.home
 
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.smarteist.autoimageslider.IndicatorAnimations
+import com.smarteist.autoimageslider.SliderAnimations
+import com.smarteist.autoimageslider.SliderView
 
 import com.tat.thai_herb.R
 import com.tat.thai_herb.listener.RecyclerViewCallBack
@@ -14,11 +18,13 @@ import com.tat.thai_herb.model.respone.DataList
 import com.tat.thai_herb.model.respone.Herb
 import com.tat.thai_herb.model.respone.SymptomList
 import com.tat.thai_herb.ui.home.adapter.HomeAdapter
+import com.tat.thai_herb.ui.home.adapter.SliderAdapter
 import com.tat.thai_herb.ui.home.presenter.HomePresenter
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment(),HomeView.View {
 
+    private var viewHome: View? = null
     private lateinit var presenter: HomePresenter
     private lateinit var homeAdapter: HomeAdapter
     var dataList: List<DataList> = arrayListOf()
@@ -27,16 +33,36 @@ class HomeFragment : Fragment(),HomeView.View {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        viewHome = inflater.inflate(R.layout.fragment_home, container, false)
         presenter = HomePresenter(this)
         homeAdapter = HomeAdapter(context!!)
 
         presenter.getDataHerb()
 
-        setupRecyclerView(view)
-        onEvent(view)
+        setupRecyclerView(viewHome)
+        setSliderView(viewHome)
+        onEvent(viewHome)
 
-        return view
+        return viewHome
+    }
+
+    private fun setSliderView(view: View?) {
+        val adapter = SliderAdapter(context!!)
+        adapter.mCount = 5
+
+        view!!.imageSlider.sliderAdapter = adapter
+
+        view.imageSlider.setIndicatorAnimation(IndicatorAnimations.WORM)
+        view.imageSlider.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION)
+        view.imageSlider.autoCycleDirection = SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH
+        view.imageSlider.indicatorSelectedColor = Color.WHITE
+        view.imageSlider.indicatorUnselectedColor = Color.GRAY
+        view.imageSlider.scrollTimeInSec = 2
+        view.imageSlider.startAutoCycle()
+
+        view.imageSlider.setOnIndicatorClickListener {
+            view.imageSlider.currentPagePosition = it
+        }
     }
 
     private fun setupRecyclerView(view: View?) {
@@ -63,21 +89,29 @@ class HomeFragment : Fragment(),HomeView.View {
     }
 
     override fun itemDataHerb(item: List<DataList>) {
+        viewHome!!.homeErrorText.visibility = View.GONE
+
         dataList = item
         homeAdapter.itemList = item
         homeAdapter.notifyDataSetChanged()
     }
 
     override fun showeLoding() {
+        viewHome!!.loadingHome.startAnimation()
+        viewHome!!.loadingHome.visibility = View.VISIBLE
+        viewHome!!.pageHome.visibility = View.GONE
 
     }
 
     override fun hideLoding() {
-
+        viewHome!!.loadingHome.clearAnimation()
+        viewHome!!.loadingHome.visibility = View.GONE
+        viewHome!!.pageHome.visibility = View.VISIBLE
     }
 
     override fun onError(message: String) {
-
+        viewHome!!.homeErrorText.visibility = View.VISIBLE
+        viewHome!!.homeErrorText.text = message
     }
 
 }

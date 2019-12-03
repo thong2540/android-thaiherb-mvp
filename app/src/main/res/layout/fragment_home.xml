@@ -9,6 +9,7 @@
         tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
+            android:id="@+id/pageHome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -122,4 +123,30 @@
         </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
+
+    <eu.micer.circlesloadingindicator.CirclesLoadingIndicator
+            android:id="@+id/loadingHome"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            app:circlesColor="@color/greenDark"
+            android:visibility="gone"
+            app:circlesCount="5"
+            app:circlesRadius="6dp"
+            app:rotationDuration="3000"
+            app:showLeadingLine="false"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" />
+
+    <TextView
+            android:id="@+id/homeErrorText"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="14sp"
+            android:text="แจ้งเตือน ERROR"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

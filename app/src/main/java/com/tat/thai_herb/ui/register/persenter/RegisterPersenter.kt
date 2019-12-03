@@ -78,8 +78,8 @@ class RegisterPersenter(private val view: RegisterView.View) {
                         )
                     )
                         .addOnCompleteListener {
+                            view.hideLoding()
                             if (it.isSuccessful) {
-                                view.hideLoding()
                                 view.registerSuccess()
                             } else {
                                 view.onError("ไม่สามารถสมัครสมาชิกได้ กรุณาตรวจสอบอีกครั้ง")

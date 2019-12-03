@@ -20,14 +20,15 @@ class HomePresenter(private val view: HomeView.View) {
         view.showeLoding()
         databaseReference!!.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
+                view.hideLoding()
                 if (p0.exists()) {
-                    view.hideLoding()
                     herb = p0.getValue(Herb::class.java)
                     view.itemDataHerb(herb?.data!!)
                 }
             }
 
             override fun onCancelled(p0: DatabaseError) {
+                view.hideLoding()
                 view.onError(p0.toException().message.toString())
             }
         })

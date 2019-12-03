@@ -15,8 +15,8 @@ class LoginPersenter(private val view: LoginView.View) {
         view.showeLoding()
         firebaseAuth!!.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
+                view.hideLoding()
                 if (it.isSuccessful) {
-                    view.hideLoding()
                     view.isSuccess()
                 } else {
                     view.onError(it.exception.toString())

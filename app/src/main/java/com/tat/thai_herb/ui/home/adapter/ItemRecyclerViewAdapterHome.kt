@@ -8,11 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.tat.thai_herb.listener.RecyclerViewCallBack
 import com.tat.thai_herb.model.respone.SymptomList
 
 
-class ItemRecyclerViewAdapterHome(var context: Context) : RecyclerView.Adapter<ItemRecyclerViewAdapterHome.ViewHolder>() {
+class ItemRecyclerViewAdapterHome(var context: Context) :
+    RecyclerView.Adapter<ItemRecyclerViewAdapterHome.ViewHolder>() {
 
     private lateinit var listener: RecyclerViewCallBack
     private var itemList: List<SymptomList> = arrayListOf()
@@ -37,7 +39,10 @@ class ItemRecyclerViewAdapterHome(var context: Context) : RecyclerView.Adapter<I
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemList[position]
-        Glide.with(context).load(item.image).into(holder.imgHerb)
+        Glide.with(context)
+            .load(item.image)
+            .fitCenter()
+            .into(holder.imgHerb)
         holder.textHerb.text = item.title
 
         holder.itemView.setOnClickListener {
