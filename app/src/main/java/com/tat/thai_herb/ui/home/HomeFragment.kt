@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.smarteist.autoimageslider.IndicatorAnimations
 import com.smarteist.autoimageslider.SliderAnimations
@@ -22,7 +23,7 @@ import com.tat.thai_herb.ui.home.adapter.SliderAdapter
 import com.tat.thai_herb.ui.home.presenter.HomePresenter
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
-class HomeFragment : Fragment(),HomeView.View {
+class HomeFragment : Fragment(), HomeView.View {
 
     private var viewHome: View? = null
     private lateinit var presenter: HomePresenter
@@ -66,7 +67,8 @@ class HomeFragment : Fragment(),HomeView.View {
     }
 
     private fun setupRecyclerView(view: View?) {
-        view!!.mainRecyclerViewHome.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL!!,false)
+        view!!.mainRecyclerViewHome.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL!!, false)
         view.mainRecyclerViewHome.isNestedScrollingEnabled = false
         view.mainRecyclerViewHome.adapter = homeAdapter
     }
@@ -76,7 +78,7 @@ class HomeFragment : Fragment(),HomeView.View {
             view.editTextSearchHome.setText("")
         }
 
-        homeAdapter.setOnDataRecyclerViewListener(object :RecyclerViewCallBack {
+        homeAdapter.setOnDataRecyclerViewListener(object : RecyclerViewCallBack {
             override fun onClickItem(position: Int) {
 
             }
