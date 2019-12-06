@@ -1,27 +1,36 @@
 package com.tat.thai_herb.ui.home
 
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.NestedScrollView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.smarteist.autoimageslider.IndicatorAnimations
 import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderView
-
 import com.tat.thai_herb.R
+
 import com.tat.thai_herb.listener.RecyclerViewCallBack
 import com.tat.thai_herb.model.respone.DataList
-import com.tat.thai_herb.model.respone.Herb
 import com.tat.thai_herb.model.respone.SymptomList
 import com.tat.thai_herb.ui.home.adapter.HomeAdapter
 import com.tat.thai_herb.ui.home.adapter.SliderAdapter
 import com.tat.thai_herb.ui.home.presenter.HomePresenter
+import com.tat.thai_herb.ui.login.LoginActivity
+import com.tat.thai_herb.ui.main.MainActivity
+import com.tat.thai_herb.ui.search.SearchActivity
+import com.tat.thai_herb.utilty.ActivityTransition
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.header_toolbar_main.view.*
+
+
+
 
 class HomeFragment : Fragment(), HomeView.View {
 
@@ -29,12 +38,14 @@ class HomeFragment : Fragment(), HomeView.View {
     private lateinit var presenter: HomePresenter
     private lateinit var homeAdapter: HomeAdapter
     var dataList: List<DataList> = arrayListOf()
+    private var firebaseAuth: FirebaseAuth? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         viewHome = inflater.inflate(R.layout.fragment_home, container, false)
+        firebaseAuth = FirebaseAuth.getInstance()
         presenter = HomePresenter(this)
         homeAdapter = HomeAdapter(context!!)
 
@@ -74,8 +85,11 @@ class HomeFragment : Fragment(), HomeView.View {
     }
 
     private fun onEvent(view: View?) {
-        view!!.imageViewDelete.setOnClickListener {
-            view.editTextSearchHome.setText("")
+
+        view!!.editTextSearchHome.setOnClickListener {
+            val intent = Intent(context,SearchActivity::class.java)
+            startActivity(intent)
+            ActivityTransition.GoAnime(activity!!)
         }
 
         homeAdapter.setOnDataRecyclerViewListener(object : RecyclerViewCallBack {
@@ -88,6 +102,19 @@ class HomeFragment : Fragment(), HomeView.View {
             }
 
         })
+
+        view.heard_main.logoutMain.setOnClickListener {
+            firebaseAuth!!.signOut()
+
+            firebaseAuth!!.addAuthStateListener {
+                if(firebaseAuth!!.currentUser == null){
+                    startActivity(Intent(context,LoginActivity::class.java))
+                 val main = MainActivity()
+                    main.finish()
+                }
+            }
+        }
+
     }
 
     override fun itemDataHerb(item: List<DataList>) {

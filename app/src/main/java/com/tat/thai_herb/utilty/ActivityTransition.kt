@@ -12,4 +12,8 @@ object ActivityTransition {
     fun GoLeft(activity: Activity) {
         activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out)
     }
+
+    fun GoAnime(activity: Activity) {
+        activity.overridePendingTransition(R.anim.push_go_anima, R.anim.push_go_anima)
+    }
 }

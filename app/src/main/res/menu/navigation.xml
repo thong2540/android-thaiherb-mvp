@@ -13,7 +13,6 @@
             android:title="แกลอรี่"/>
     <item
             android:id="@+id/game"
-            android:checkable="false"
             android:title="เล่นเกม"/>
 
     <item
