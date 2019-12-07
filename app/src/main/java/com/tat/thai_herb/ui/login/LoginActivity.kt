@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.senate_system.tracking_android.ui.dialog.DialogManager
 import com.tat.thai_herb.R
+import com.tat.thai_herb.extensions.hideKeyboard
 import com.tat.thai_herb.ui.login.persenter.LoginPersenter
 import com.tat.thai_herb.ui.main.MainActivity
 import com.tat.thai_herb.ui.register.RegisterActivity
@@ -40,6 +41,7 @@ class LoginActivity : AppCompatActivity(), LoginView.View {
                     editTextEmailLogin.text.toString(),
                     editTextPasswordLogin.text.toString()
                 )
+                this.hideKeyboard()
             }
         }
     }

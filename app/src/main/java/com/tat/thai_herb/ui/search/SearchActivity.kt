@@ -2,6 +2,7 @@ package com.tat.thai_herb.ui.search
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import com.tat.thai_herb.R
 import com.tat.thai_herb.extensions.hideKeyboard
 import com.tat.thai_herb.utilty.StatusbarManager

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.senate_system.tracking_android.ui.dialog.DialogManager
 import com.tat.thai_herb.R
+import com.tat.thai_herb.extensions.hideKeyboard
 import com.tat.thai_herb.ui.register.persenter.RegisterPersenter
 import com.tat.thai_herb.utilty.StatusbarManager
 import com.tat.thai_herb.utilty.dialog.DialogInterface
@@ -46,6 +47,7 @@ class RegisterActivity : AppCompatActivity(), RegisterView.View {
                     editTextPasswordRegister.text.toString(),
                     mPartImage
                 )
+                this.hideKeyboard()
             }
         }
 
