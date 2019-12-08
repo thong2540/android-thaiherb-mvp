@@ -21,8 +21,8 @@
             android:title="โปรไฟล์"/>
 
     <item
-            android:id="@+id/setting"
-            android:icon="@drawable/icon_bame"
+            android:id="@+id/abou"
+            android:icon="@drawable/icon_about"
             android:title="เล่นเกม"/>
 
 

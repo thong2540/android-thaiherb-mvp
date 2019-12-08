@@ -15,13 +15,17 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.detaimain.DetailMainActivity"></activity>
-        <activity
-                android:name=".ui.description.DescriptionHerbActivity"
-                android:label="@string/title_activity_description_herb"
-                android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ui.description.DescriptionActivity"></activity>
-        <activity android:name=".ui.search.SearchActivity" />
+        <activity android:name=".ui.gallery.PresentImageActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ui.detaimain.DetailMainActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ui.description.DescriptionActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ui.search.SearchActivity"
+                android:screenOrientation="portrait" />
         <activity
                 android:name=".ui.register.RegisterActivity"
                 android:screenOrientation="portrait"

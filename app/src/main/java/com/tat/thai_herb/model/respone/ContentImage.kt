@@ -4,5 +4,6 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class ContentImage(
-    val part: String = ""
+    val part: String = "",
+    val name: String = ""
 )
