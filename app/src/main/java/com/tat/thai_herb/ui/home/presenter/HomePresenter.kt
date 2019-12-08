@@ -7,8 +7,6 @@ import com.tat.thai_herb.ui.home.HomeView
 
 class HomePresenter(private val view: HomeView.View) {
 
-
-
     private var databaseReference: DatabaseReference? = null
     internal var herb: Herb? = null
 

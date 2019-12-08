@@ -18,6 +18,7 @@ import com.tat.thai_herb.listener.RecyclerViewCallBack
 import com.tat.thai_herb.model.respone.DataList
 import com.tat.thai_herb.model.respone.SymptomList
 import com.tat.thai_herb.ui.description.DescriptionActivity
+import com.tat.thai_herb.ui.detaimain.DetailMainActivity
 import com.tat.thai_herb.ui.home.adapter.HomeAdapter
 import com.tat.thai_herb.ui.home.adapter.SliderAdapter
 import com.tat.thai_herb.ui.home.presenter.HomePresenter
@@ -85,7 +86,10 @@ class HomeFragment : Fragment(), HomeView.View {
 
         homeAdapter.setOnDataRecyclerViewListener(object : RecyclerViewCallBack {
             override fun onClickItem(position: Int) {
-
+                val intent = Intent(context, DetailMainActivity::class.java)
+                intent.putExtra("Title", dataList[position].title)
+                intent.putExtra("key", dataList[position].key)
+                startActivity(intent)
             }
 
             override fun onPresentData(data: SymptomList) {

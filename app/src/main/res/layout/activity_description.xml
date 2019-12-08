@@ -27,8 +27,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
+                    android:alpha="0.7"
                     android:scaleType="centerCrop"
-                    android:background="@color/greyDark" />
+                    android:background="@color/black" />
 
             <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -41,6 +42,24 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_scrolling" />
+    <include
+            android:id="@+id/include_des"
+            layout="@layout/content_scrolling" />
+
+    <eu.micer.circlesloadingindicator.CirclesLoadingIndicator
+            android:id="@+id/loadingDes"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            app:circlesColor="@color/greenDark"
+            app:circlesCount="5"
+            app:circlesRadius="6dp"
+            app:rotationDuration="3000"
+            app:showLeadingLine="false" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

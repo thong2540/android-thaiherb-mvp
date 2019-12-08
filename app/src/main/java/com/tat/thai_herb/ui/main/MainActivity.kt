@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tat.thai_herb.R
+import com.tat.thai_herb.ui.gallery.GalleryFragment
 import com.tat.thai_herb.ui.game.GameFragment
 import com.tat.thai_herb.ui.home.HomeFragment
 import com.tat.thai_herb.ui.profile.ProfileFragment
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                         fragment = GameFragment()
                     }
                     R.id.gallery -> {
-                        fragment = ProfileFragment()
+                        fragment = GalleryFragment()
                     }
                     R.id.profile -> {
                         fragment = ProfileFragment()

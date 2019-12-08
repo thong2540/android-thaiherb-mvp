@@ -16,15 +16,12 @@ import java.util.*
 
 class RegisterPersenter(private val view: RegisterView.View) {
 
-    private var firebaseStore: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
-
     private var databaseReference: DatabaseReference? = null
     private var firebaseAuth: FirebaseAuth? = null
     private var firebaseUser: FirebaseUser? = null
 
     init {
-        firebaseStore = FirebaseStorage.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
         firebaseAuth = FirebaseAuth.getInstance()
     }
