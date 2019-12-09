@@ -19,7 +19,7 @@
                 android:hint="ค้นหาสมุนไพรตามอาการป่วย"
                 android:textColorHint="@color/greyDark"
                 android:textSize="14sp"
-                android:imeOptions="actionSearch"
+                android:imeOptions="actionDone"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:inputType="text"

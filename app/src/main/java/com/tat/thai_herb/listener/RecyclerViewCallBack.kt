@@ -6,3 +6,7 @@ interface RecyclerViewCallBack {
     fun onClickItem(position: Int)
     fun onPresentData(data: SymptomList)
 }
+
+interface SearchViewCallBack {
+    fun onClickItem(position: Int)
+}
