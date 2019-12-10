@@ -1,6 +1,7 @@
 package com.tat.thai_herb
 
 import android.app.Application
+import io.alterac.blurkit.BlurKit
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor
 import io.github.inflationx.viewpump.ViewPump

@@ -15,16 +15,21 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.gallery.PresentImageActivity"
+        <activity android:name=".ui.profile.ProfileActivity"></activity>
+        <activity
+                android:name=".ui.gallery.PresentImageActivity"
                 android:screenOrientation="portrait"
-                android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".ui.detaimain.DetailMainActivity"
+                android:windowSoftInputMode="stateHidden" />
+        <activity
+                android:name=".ui.detaimain.DetailMainActivity"
                 android:screenOrientation="portrait"
-                android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".ui.description.DescriptionActivity"
+                android:windowSoftInputMode="stateHidden" />
+        <activity
+                android:name=".ui.description.DescriptionActivity"
                 android:screenOrientation="portrait"
-                android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".ui.search.SearchActivity"
+                android:windowSoftInputMode="stateHidden" />
+        <activity
+                android:name=".ui.search.SearchActivity"
                 android:screenOrientation="portrait" />
         <activity
                 android:name=".ui.register.RegisterActivity"

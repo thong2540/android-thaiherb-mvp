@@ -56,6 +56,57 @@
 
         </LinearLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/editpass_click"
+                android:layout_marginTop="16dp"
+                android:background="@color/white"
+                android:paddingBottom="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:id="@+id/imageView_editpass_menu"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/icon_editpassword"
+                    android:tint="@color/greyDark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                    android:id="@+id/textView_editpass_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/black"
+                    android:text="แก้ไขรหัสผ่าน"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView_editpass_menu"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                    android:id="@+id/imageView_editpass2_menu"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:tint="@color/greyDark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,41 +115,41 @@
                 android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/editProfile_click"
+                    android:id="@+id/help_click"
                     android:paddingTop="2dp"
                     android:paddingBottom="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                 <ImageView
-                        android:id="@+id/imageView_editProfile_menu"
+                        android:id="@+id/imageView_help_menu"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/icon_editprofile"
+                        android:src="@drawable/icon_help"
                         android:tint="@color/greyDark"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                        android:id="@+id/textView_editProfile_menu"
+                        android:id="@+id/textView_help_menu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:text="แก้ไขโปรไฟล์"
+                        android:text="ช่วยเหลือ"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView_editProfile_menu"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_help_menu"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                        android:id="@+id/imageView_editProfile2_menu"
+                        android:id="@+id/imageView_help2_menu"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_marginTop="8dp"
@@ -121,41 +172,42 @@
                     android:background="@color/colorLightgrey"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/editpass_click"
+                    android:id="@+id/about_click"
+                    android:background="@color/white"
                     android:paddingTop="2dp"
                     android:paddingBottom="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                 <ImageView
-                        android:id="@+id/imageView_editpass_menu"
+                        android:id="@+id/imageView_about_menu"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/icon_editpassword"
+                        android:src="@drawable/icon_about"
                         android:tint="@color/greyDark"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                        android:id="@+id/textView_editpass_menu"
+                        android:id="@+id/textView_about_menu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:textColor="@color/black"
-                        android:text="แก้ไขรหัสผ่าน"
+                        android:text="เกี่ยวกับ"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView_editpass_menu"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_about_menu"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                        android:id="@+id/imageView_editpass2_menu"
+                        android:id="@+id/imageView_about2_menu"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_marginTop="8dp"
@@ -172,57 +224,7 @@
 
         </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/about_click"
-                android:background="@color/white"
-                android:layout_marginTop="16dp"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-            <ImageView
-                    android:id="@+id/imageView_about_menu"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:src="@drawable/icon_about"
-                    android:tint="@color/greyDark"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                    android:id="@+id/textView_about_menu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:textColor="@color/black"
-                    android:text="เกี่ยวกับ"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView_about_menu"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                    android:id="@+id/imageView_about2_menu"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:src="@drawable/ic_arrow_right"
-                    android:tint="@color/greyDark"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/logout_click"

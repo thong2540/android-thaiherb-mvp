@@ -1,6 +1,7 @@
 package com.tat.thai_herb.ui.pagemenu
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,21 +13,21 @@ import com.tat.thai_herb.R
 import com.tat.thai_herb.extensions.logout
 import com.tat.thai_herb.model.respone.UserInfo
 import com.tat.thai_herb.ui.pagemenu.presenter.MenuPresenter
+import com.tat.thai_herb.ui.profile.ProfileActivity
 import kotlinx.android.synthetic.main.fragment_menu.view.*
 
 
-class MenuFragment : Fragment(),MenuView.View {
+class MenuFragment : Fragment(), MenuView.View {
 
     private lateinit var presenter: MenuPresenter
     private var viewMenu: View? = null
+    private var user: UserInfo? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         viewMenu = inflater.inflate(R.layout.fragment_menu, container, false)
-        presenter = MenuPresenter(this)
-        presenter.getUserInfo()
 
         onEvent(viewMenu)
 
@@ -35,14 +36,18 @@ class MenuFragment : Fragment(),MenuView.View {
 
     private fun onEvent(view: View?) {
         view!!.profile_click_menu.setOnClickListener {
-
-        }
-
-        view.editProfile_click.setOnClickListener {
-
+            val intent = Intent(context!!, ProfileActivity::class.java)
+            intent.putExtra("image",user!!.imgURL)
+            intent.putExtra("name",user!!.username)
+            intent.putExtra("email",user!!.email)
+            startActivity(intent)
         }
 
         view.editpass_click.setOnClickListener {
+
+        }
+
+        view.help_click.setOnClickListener {
 
         }
 
@@ -56,10 +61,19 @@ class MenuFragment : Fragment(),MenuView.View {
     }
 
     override fun responeUserInfo(dataUser: UserInfo) {
+        user = dataUser
         viewMenu!!.title_menu.text = dataUser!!.username
         viewMenu!!.des_menu.text = dataUser!!.email
-        if (dataUser!!.imgURL != "default"){
-            Glide.with(context!!).load(dataUser!!.imgURL).into(viewMenu!!.image_menu)
+        if (dataUser!!.imgURL != "default") {
+            Glide.with(context!!)
+                .load(dataUser!!.imgURL)
+                .into(viewMenu!!.image_menu)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        presenter = MenuPresenter(this)
+        presenter.getUserInfo()
     }
 }
