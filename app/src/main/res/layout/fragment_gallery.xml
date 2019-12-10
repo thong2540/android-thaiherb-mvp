@@ -10,12 +10,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-    <include
-            android:id="@+id/heard_gallery"
-            layout="@layout/header_toolbar_main"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-
         <androidx.recyclerview.widget.RecyclerView
 
                 android:layout_gravity="center"

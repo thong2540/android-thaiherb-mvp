@@ -18,9 +18,9 @@
 
         <ImageView
                 android:id="@+id/close_image"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="24dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/bg_close_image"
                 android:padding="2dp"

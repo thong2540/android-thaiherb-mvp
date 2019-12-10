@@ -13,17 +13,12 @@
             android:title="แกลอรี่"/>
     <item
             android:id="@+id/game"
+            android:icon="@drawable/icon_bame"
             android:title="เล่นเกม"/>
 
     <item
-            android:id="@+id/profile"
-            android:icon="@drawable/icon_user"
+            android:id="@+id/menu"
+            android:icon="@drawable/icon_menu"
             android:title="โปรไฟล์"/>
-
-    <item
-            android:id="@+id/abou"
-            android:icon="@drawable/icon_about"
-            android:title="เล่นเกม"/>
-
 
 </menu>

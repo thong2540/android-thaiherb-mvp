@@ -20,7 +20,7 @@ class DescriptionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_description)
-        StatusbarManager.darkenStatusBar(this, R.drawable.bg_toolbar)
+        StatusbarManager.darkenStatusBarColor(this, R.drawable.bg_toolbar)
         handler = Handler()
         if (intent == null) return
 

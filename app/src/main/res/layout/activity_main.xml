@@ -6,52 +6,31 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainActivity">
 
+    <include
+            android:id="@+id/heard_main"
+            layout="@layout/header_toolbar_main"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
     <FrameLayout
             android:id="@+id/frame"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@color/grey"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintBottom_toTopOf="@+id/navigation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/heard_main" />
 
-    <LinearLayout
-            android:id="@+id/linearLayout2"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/navigation"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@android:color/white"
-                app:itemIconSize="20dp"
-                app:labelVisibilityMode="unlabeled"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:menu="@menu/navigation" />
-
-    </LinearLayout>
-
-
-    <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="@dimen/margin_8_dp"
-            android:background="@drawable/bg_image"
-            android:elevation="@dimen/margin_8_dp"
-            android:padding="10dp"
-            android:src="@drawable/icon_bame"
-            android:tint="@color/white"
-            android:translationZ="100dp"
+            android:layout_height="40dp"
+            android:background="@android:color/white"
+            app:itemIconSize="20dp"
+            app:labelVisibilityMode="unlabeled"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout2" />
-
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

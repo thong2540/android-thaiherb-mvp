@@ -16,6 +16,7 @@ import com.tat.thai_herb.model.respone.ContentImage
 import com.tat.thai_herb.model.respone.SymptomList
 import com.tat.thai_herb.ui.gallery.adapter.GalleryAdapter
 import com.tat.thai_herb.ui.gallery.presenter.GalleryPresenter
+import com.tat.thai_herb.utilty.StatusbarManager
 import kotlinx.android.synthetic.main.fragment_gallery.view.*
 import kotlinx.android.synthetic.main.header_toolbar_main.view.*
 
@@ -40,10 +41,8 @@ class GalleryFragment : Fragment(),GalleryView.View {
     }
 
     private fun setupRecyclerView(view: View?) {
-        view!!.heard_gallery.textViewMain.text = "แกลลอรี่"
-
         adapter = GalleryAdapter()
-        view.mainRecyclerGallery.setHasFixedSize(true)
+        view!!.mainRecyclerGallery.setHasFixedSize(true)
         view.mainRecyclerGallery.layoutManager = GridLayoutManager(context, 3)
         view.mainRecyclerGallery.adapter = adapter
 
@@ -51,10 +50,6 @@ class GalleryFragment : Fragment(),GalleryView.View {
     }
 
     private fun onEvent(view: View?) {
-        view!!.heard_gallery.logoutMain.setOnClickListener {
-            this.logout()
-        }
-
         adapter.setOnDataRecyclerViewListener(object : RecyclerViewCallBack {
             override fun onClickItem(position: Int) {
                 val intent = Intent(context,PresentImageActivity::class.java)

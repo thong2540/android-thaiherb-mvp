@@ -26,7 +26,7 @@ class DetailMainActivity : AppCompatActivity(), DetailMainView.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_main)
-        StatusbarManager.darkenStatusBar(this, R.drawable.bg_toolbar)
+        StatusbarManager.darkenStatusBarColor(this, R.drawable.bg_toolbar)
         presenter = DetailMainPresenter(this)
         //เช็ค null การส่งค่าผ่าน intent กันบัค
         if (intent == null) return
@@ -42,7 +42,7 @@ class DetailMainActivity : AppCompatActivity(), DetailMainView.View {
         //header
         headerAdapter = HeaderAdapter()
         recyclerviewHeader.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL!!, false)
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerviewHeader.setHasFixedSize(true)
         recyclerviewHeader.isNestedScrollingEnabled = false
         headerAdapter!!.mContext = this

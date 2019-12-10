@@ -14,6 +14,10 @@ import com.tat.thai_herb.model.respone.SearchList
 class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
     var mData: List<SearchList> = arrayListOf()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
     private var mCallBack: SearchViewCallBack? = null
 
     fun setOnClickResponseCallBack(responseCallBack: SearchViewCallBack?) {
@@ -42,8 +46,11 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val image_item_serach: ImageView = itemView.findViewById<View>(R.id.image_item_serach) as ImageView
-        val title_item_serach: TextView = itemView.findViewById<View>(R.id.title_item_serach) as TextView
-        val des_item_serach: TextView = itemView.findViewById<View>(R.id.des_item_serach) as TextView
+        val image_item_serach: ImageView =
+            itemView.findViewById<View>(R.id.image_item_serach) as ImageView
+        val title_item_serach: TextView =
+            itemView.findViewById<View>(R.id.title_item_serach) as TextView
+        val des_item_serach: TextView =
+            itemView.findViewById<View>(R.id.des_item_serach) as TextView
     }
 }

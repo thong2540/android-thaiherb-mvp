@@ -12,12 +12,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-        <include
-                android:id="@+id/heard_main"
-                layout="@layout/header_toolbar_main"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
-
         <LinearLayout
                 android:id="@+id/pageHome"
                 android:layout_width="match_parent"
@@ -127,8 +121,8 @@
 
     <eu.micer.circlesloadingindicator.CirclesLoadingIndicator
             android:id="@+id/loadingHome"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_gravity="center"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -136,8 +130,8 @@
             android:layout_marginBottom="8dp"
             android:visibility="gone"
             app:circlesColor="@color/greenDark"
-            app:circlesCount="5"
-            app:circlesRadius="6dp"
+            app:circlesCount="10"
+            app:circlesRadius="3dp"
             app:rotationDuration="3000"
             app:showLeadingLine="false" />
 

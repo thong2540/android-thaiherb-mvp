@@ -20,9 +20,10 @@ object StatusbarManager {
         }
     }
 
-    fun darkenStatusBar(activity: Activity, bg: Int) {
+    fun darkenStatusBarColor(activity: Activity, bg: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             activity.window.apply {
+                this.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
                 this.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
                 this.statusBarColor = Color.TRANSPARENT
                 this.setBackgroundDrawableResource(bg)

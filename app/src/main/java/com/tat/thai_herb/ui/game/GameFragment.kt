@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.tat.thai_herb.R
+import com.tat.thai_herb.utilty.StatusbarManager
 
 class GameFragment : Fragment() {
 

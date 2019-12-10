@@ -30,7 +30,7 @@ class SearchActivity : AppCompatActivity(), SearchView.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-        StatusbarManager.darkenStatusBar(this, R.drawable.bg_toolbar)
+        StatusbarManager.darkenStatusBarColor(this, R.drawable.bg_toolbar)
         presenter = SearchPresenter(this)
 
         setupRecyclerView()
@@ -41,7 +41,7 @@ class SearchActivity : AppCompatActivity(), SearchView.View {
         adapter = SearchAdapter()
         search_recyclerview.setHasFixedSize(true)
         search_recyclerview.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL!!, false)
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         search_recyclerview.adapter = adapter
     }
 
@@ -91,8 +91,7 @@ class SearchActivity : AppCompatActivity(), SearchView.View {
             showeEror.visibility = View.GONE
             search_recyclerview.visibility = View.VISIBLE
         }
-        adapter.mData = list
-        adapter.notifyDataSetChanged()
+        adapter.mData = data
     }
 
     override fun showeLoding() {
