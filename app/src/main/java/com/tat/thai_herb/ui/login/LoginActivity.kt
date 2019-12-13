@@ -10,6 +10,7 @@ import com.tat.thai_herb.extensions.hideKeyboard
 import com.tat.thai_herb.ui.login.persenter.LoginPersenter
 import com.tat.thai_herb.ui.main.MainActivity
 import com.tat.thai_herb.ui.register.RegisterActivity
+import com.tat.thai_herb.ui.resetpassword.ResetPassword
 import com.tat.thai_herb.utilty.ActivityTransition
 import com.tat.thai_herb.utilty.StatusbarManager
 import kotlinx.android.synthetic.main.activity_login.*
@@ -44,6 +45,12 @@ class LoginActivity : AppCompatActivity(), LoginView.View {
                 this.hideKeyboard()
             }
         }
+
+        txtForgetLogin.setOnClickListener {
+            val intent = Intent(this, ResetPassword::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun checkValidate(): Boolean {

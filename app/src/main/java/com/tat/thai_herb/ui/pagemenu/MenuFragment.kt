@@ -14,6 +14,7 @@ import com.tat.thai_herb.extensions.logout
 import com.tat.thai_herb.model.respone.UserInfo
 import com.tat.thai_herb.ui.pagemenu.presenter.MenuPresenter
 import com.tat.thai_herb.ui.profile.ProfileActivity
+import com.tat.thai_herb.ui.resetpassword.ResetPassword
 import kotlinx.android.synthetic.main.fragment_menu.view.*
 
 
@@ -44,7 +45,8 @@ class MenuFragment : Fragment(), MenuView.View {
         }
 
         view.editpass_click.setOnClickListener {
-
+            val intent = Intent(context!!, ResetPassword::class.java)
+            startActivity(intent)
         }
 
         view.help_click.setOnClickListener {

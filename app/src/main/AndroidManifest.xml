@@ -15,7 +15,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.profile.ProfileActivity"></activity>
+        <activity android:name=".ui.resetpassword.ResetPassword"></activity>
+        <activity android:name=".ui.profile.ProfileActivity" />
         <activity
                 android:name=".ui.gallery.PresentImageActivity"
                 android:screenOrientation="portrait"
