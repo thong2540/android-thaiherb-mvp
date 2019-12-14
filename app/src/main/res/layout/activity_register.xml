@@ -26,97 +26,97 @@
             android:layout_marginEnd="16dp">
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/textLogoRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="สมัครสมาชิก"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                android:textColor="@color/greenDark"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_gravity="center"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageView_profile"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="center"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:padding="2dp"
+                android:src="@drawable/icon_photo_placeholder"/>
+
+        <EditText
+                android:id="@+id/editTextNameRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:orientation="vertical">
+                android:background="@drawable/bg_edittext"
+                android:hint="ชื่อ - นามสกุล"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textSize="14sp"/>
 
-            <TextView
-                    android:id="@+id/textLogoRegister"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="สมัครสมาชิก"
-                    android:textSize="22dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/greenDark"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_gravity="center"/>
+        <EditText
+                android:id="@+id/editTextEmailRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edittext"
+                android:hint="อีเมล"
+                android:layout_marginTop="16dp"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textSize="14sp"/>
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/imageView_profile"
-                    android:layout_marginBottom="16dp"
-                    android:layout_gravity="center"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:padding="2dp"
-                    android:src="@drawable/icon_photo_placeholder"/>
+        <EditText
+                android:id="@+id/editTextPasswordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="รหัสผ่าน"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textSize="14sp"/>
 
-            <EditText
-                    android:id="@+id/editTextNameRegister"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_edittext"
-                    android:hint="ชื่อ - นามสกุล"
-                    android:inputType="textEmailAddress"
-                    android:padding="10dp"
-                    android:textSize="14sp"/>
+        <EditText
+                android:id="@+id/editTextConPasswordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="ยืนยันรหัสผ่าน"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textSize="14sp"/>
 
-            <EditText
-                    android:id="@+id/editTextEmailRegister"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_edittext"
-                    android:hint="อีเมล"
-                    android:layout_marginTop="16dp"
-                    android:inputType="textEmailAddress"
-                    android:padding="10dp"
-                    android:textSize="14sp"/>
+        <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_bg_"
+                android:text="สมัครสมาชิก"
+                android:textColor="@android:color/background_light"
+                android:textSize="14sp"/>
 
-            <EditText
-                    android:id="@+id/editTextPasswordRegister"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/bg_edittext"
-                    android:hint="รหัสผ่าน"
-                    android:inputType="textPassword"
-                    android:padding="10dp"
-                    android:textSize="14sp"/>
+        <TextView
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center"
+                android:id="@+id/txtLoginRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="เข้าสู่ระบบ"
+                android:textColor="@color/greenDark"
+                android:textSize="14sp"/>
 
-            <EditText
-                    android:id="@+id/editTextConPasswordRegister"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/bg_edittext"
-                    android:hint="ยืนยันรหัสผ่าน"
-                    android:inputType="textPassword"
-                    android:padding="10dp"
-                    android:textSize="14sp"/>
-
-            <Button
-                    android:id="@+id/btnRegister"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/button_bg_"
-                    android:text="สมัครสมาชิก"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="14sp"/>
-
-            <TextView
-                    android:layout_marginTop="16dp"
-                    android:layout_gravity="center"
-                    android:id="@+id/txtLoginRegister"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:text="เข้าสู่ระบบ"
-                    android:textColor="@color/greenDark"
-                    android:textSize="14sp"/>
-
-        </LinearLayout>
+    </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <eu.micer.circlesloadingindicator.CirclesLoadingIndicator

@@ -4,6 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFF8E1"
         tools:context=".ui.profile.ProfileActivity">
 
     <ImageView
@@ -44,8 +45,8 @@
                 android:id="@+id/image_profile"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:padding="3dp"
                 android:background="@drawable/bg_image"
+                android:padding="3dp"
                 android:src="@drawable/icon_photo_placeholder" />
 
         <TextView
@@ -71,9 +72,8 @@
 
     <LinearLayout
             android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFF8E1"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="16dp"
@@ -84,16 +84,16 @@
         <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:tint="#424242"
-                android:src="@drawable/icon_setting" />
+                android:src="@drawable/icon_setting"
+                android:tint="#424242" />
 
         <TextView
-                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
-                android:textSize="12sp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="แก้ไขโปรไฟล์"
                 android:textColor="@color/black"
-                android:text="แก้ไขโปรไฟล์" />
+                android:textSize="12sp" />
 
     </LinearLayout>
 
