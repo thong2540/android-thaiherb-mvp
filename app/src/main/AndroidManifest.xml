@@ -15,9 +15,12 @@
             android:roundIcon="@drawable/logoapp"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.game.JigsawActivity"
+        <activity android:name=".ui.help.HelpActivity"></activity>
+        <activity android:name=".ui.about.AboutActivity" />
+        <activity
+                android:name=".ui.game.JigsawActivity"
                 android:screenOrientation="landscape"
-                android:windowSoftInputMode="stateHidden"/>
+                android:windowSoftInputMode="stateHidden" />
         <activity
                 android:name=".utilty.game.puzzle.PuzzleActivity"
                 android:screenOrientation="landscape"

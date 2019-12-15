@@ -88,7 +88,7 @@ class DemoBottomSheetFragment : SuperBottomSheetFragment(), EditProfileView.View
         dialogManager.alertAlert(
             activity!!,
             "แจ้งเตือน",
-            "แก้ไข้สำเร็จ",
+            "แก้ไขสำเร็จ",
             "ตกลง"
         )
 
