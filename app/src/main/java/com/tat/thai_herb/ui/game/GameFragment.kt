@@ -1,6 +1,7 @@
 package com.tat.thai_herb.ui.game
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,8 @@ import android.view.ViewGroup
 
 import com.tat.thai_herb.R
 import com.tat.thai_herb.utilty.StatusbarManager
+import com.tat.thai_herb.utilty.game.puzzle.PuzzleActivity
+import kotlinx.android.synthetic.main.fragment_game.view.*
 
 class GameFragment : Fragment() {
 
@@ -18,7 +21,16 @@ class GameFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_game, container, false)
 
+        onEvent(view)
+
         return view
+    }
+
+    private fun onEvent(view: View?) {
+        view!!.game1.setOnClickListener {
+            val intent = Intent(context!!,JigsawActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

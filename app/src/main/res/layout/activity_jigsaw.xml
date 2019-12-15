@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_game"
+        tools:context=".ui.game.JigsawActivity">
+
+    <ImageView
+            android:id="@+id/game1_back"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/margin_8_dp"
+            android:src="@drawable/game_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:src="@drawable/head_game1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+            android:id="@+id/corp_game1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/margin_8_dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewGame1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/margin_8_dp"
+                android:paddingRight="@dimen/margin_8_dp"
+                android:paddingBottom="@dimen/margin_8_dp" />
+
+        <ScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_8_dp"
+                android:layout_weight="1"
+                android:background="@drawable/blackboard_game1"
+                android:paddingLeft="@dimen/margin_8_dp"
+                android:paddingRight="@dimen/margin_8_dp"
+                android:paddingTop="@dimen/margin_8_dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="39dp">
+
+            <LinearLayout
+                    android:id="@+id/gorp"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_8_dp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/title_game1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/margin_8_dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="TITLE"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/sys_game1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/margin_8_dp"
+                        android:layout_marginEnd="14sp"
+                        android:paddingLeft="@dimen/margin_8_dp"
+                        android:text="TITLE"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/des_game1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/margin_8_dp"
+                        android:layout_marginTop="@dimen/margin_8_dp"
+                        android:layout_marginEnd="12sp"
+                        android:paddingLeft="@dimen/margin_8_dp"
+                        android:singleLine="false"
+                        android:text="DES"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <ImageView
+            android:id="@+id/go_on"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:visibility="gone"
+            android:background="@drawable/bg_image"
+            android:tint="@color/black"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
