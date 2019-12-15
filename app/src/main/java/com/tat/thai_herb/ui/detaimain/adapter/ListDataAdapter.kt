@@ -1,10 +1,12 @@
 package com.tat.thai_herb.ui.detaimain.adapter
 
 import android.content.Context
+import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -32,8 +34,14 @@ class ListDataAdapter : RecyclerView.Adapter<ListDataAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val detil: Detail = mData[position]
+        val width: Int = Resources.getSystem().displayMetrics.widthPixels
+
         holder.textHerb.text = detil.title
-        Glide.with(mContext!!).load(detil.image).into(holder.imgHerb)
+        Glide
+            .with(mContext!!)
+            .load(detil.image)
+            .override(width/2,width/2)
+            .into(holder.imgHerb)
         holder.itemView.setOnClickListener {
             if (mCallBack != null) mCallBack!!.onClickItem(mData[position])
         }
@@ -46,5 +54,6 @@ class ListDataAdapter : RecyclerView.Adapter<ListDataAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgHerb: ImageView = itemView.findViewById<View>(R.id.imgHerb) as ImageView
         val textHerb: TextView = itemView.findViewById<View>(R.id.textHerb) as TextView
+        val le1: LinearLayout = itemView.findViewById<View>(R.id.le1) as LinearLayout
     }
 }

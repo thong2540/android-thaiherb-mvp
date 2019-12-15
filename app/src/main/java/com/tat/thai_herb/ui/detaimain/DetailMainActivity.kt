@@ -50,7 +50,7 @@ class DetailMainActivity : AppCompatActivity(), DetailMainView.View {
         //list
         listDataAdapter = ListDataAdapter()
         recyclerviewData.setHasFixedSize(true)
-        recyclerviewData.layoutManager = GridLayoutManager(this, 2)
+        recyclerviewData.layoutManager = GridLayoutManager(this, 3)
         listDataAdapter!!.mContext = this
         recyclerviewData.adapter = listDataAdapter
     }

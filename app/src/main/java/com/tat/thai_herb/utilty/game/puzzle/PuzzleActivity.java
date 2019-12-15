@@ -266,7 +266,7 @@ public class PuzzleActivity extends AppCompatActivity {
                                 setPuzzleListAdapter();
                                 piecesModel = null;
                                 if (piecesModelListMain.size() == 0) {
-                                    Toast.makeText(getApplicationContext(), "SUCCESS !!", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "SUCCESS !!", Toast.LENGTH_SHORT).show();
                                     final Handler handler = new Handler();
                                     handler.postDelayed(new Runnable() {
                                         @Override
@@ -275,34 +275,34 @@ public class PuzzleActivity extends AppCompatActivity {
                                         }
                                     }, 2000);
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "The correct Puzzle", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "The correct Puzzle", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 piecesModel = null;
                                 view.setVisibility(View.VISIBLE);
-                                Toast.makeText(getApplicationContext(), "Not the correct Puzzle", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Not the correct Puzzle", Toast.LENGTH_SHORT).show();
                                 break;
                             }
                         } else {
                             View view1 = (View) event.getLocalState();
                             view1.setVisibility(View.VISIBLE);
-                            Toast.makeText(getApplicationContext(), "You can't drop the image here", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "You can't drop the image here", Toast.LENGTH_SHORT).show();
                             break;
                         }
                     } else if (v == scrollView) {
                         View view1 = (View) event.getLocalState();
                         view1.setVisibility(View.VISIBLE);
-                        Toast.makeText(getApplicationContext(), "You can't drop the image here", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "You can't drop the image here", Toast.LENGTH_SHORT).show();
                         break;
                     } else if (v == rvPuzzle) {
                         View view1 = (View) event.getLocalState();
                         view1.setVisibility(View.VISIBLE);
-                        Toast.makeText(getApplicationContext(), "You can't drop the image here", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "You can't drop the image here", Toast.LENGTH_SHORT).show();
                         break;
                     } else {
                         View view = (View) event.getLocalState();
                         view.setVisibility(View.VISIBLE);
-                        Toast.makeText(getApplicationContext(), "You can't drop the image here", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "You can't drop the image here", Toast.LENGTH_SHORT).show();
                         break;
                     }
                     break;

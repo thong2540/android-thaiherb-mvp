@@ -57,6 +57,7 @@
                 android:padding="8dp">
 
             <TextView
+                    android:id="@+id/game2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
@@ -90,6 +91,7 @@
                 android:padding="8dp">
 
             <TextView
+                    android:id="@+id/game3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
