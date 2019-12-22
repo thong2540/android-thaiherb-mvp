@@ -14,12 +14,12 @@ class ProfileActivity : AppCompatActivity() {
     private var images: String? = ""
     private var names: String? = ""
     private var email: String? = ""
+//    private lateinit var sheet: DemoBottomSheetFragment
 
-    private lateinit var sheet: DemoBottomSheetFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
-        sheet = DemoBottomSheetFragment()
+//        sheet = DemoBottomSheetFragment()
         this.darkenStatusBar()
         if (intent == null) return
         val  intent = intent
@@ -48,20 +48,20 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
 
-        linearLayout2.setOnClickListener {
-            sheet.image = images
-            sheet.name = names
-            sheet.email = email
-            sheet.show(supportFragmentManager, "DemoBottomSheetFragment")
+//        linearLayout2.setOnClickListener {
+//            sheet.image = images
+//            sheet.name = names
+//            sheet.email = email
+//            sheet.show(supportFragmentManager, "DemoBottomSheetFragment")
+//
+//        }
 
-        }
-
-        sheet.bottomSheetListener(object : FragmentCallBack.CalBackEditProfile {
-            override fun onSuccess(image: String, name: String) {
-                images = image
-                names = name
-                setupView()
-            }
-        })
+//        sheet.bottomSheetListener(object : FragmentCallBack.CalBackEditProfile {
+//            override fun onSuccess(image: String, name: String) {
+//                images = image
+//                names = name
+//                setupView()
+//            }
+//        })
     }
 }

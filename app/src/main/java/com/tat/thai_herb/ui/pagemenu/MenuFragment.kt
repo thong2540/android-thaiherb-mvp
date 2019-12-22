@@ -11,8 +11,10 @@ import com.bumptech.glide.Glide
 
 import com.tat.thai_herb.R
 import com.tat.thai_herb.extensions.logout
+import com.tat.thai_herb.listener.FragmentCallBack
 import com.tat.thai_herb.model.respone.UserInfo
 import com.tat.thai_herb.ui.about.AboutActivity
+import com.tat.thai_herb.ui.editProfile.DemoBottomSheetFragment
 import com.tat.thai_herb.ui.help.HelpActivity
 import com.tat.thai_herb.ui.pagemenu.presenter.MenuPresenter
 import com.tat.thai_herb.ui.profile.ProfileActivity
@@ -25,12 +27,14 @@ class MenuFragment : Fragment(), MenuView.View {
     private lateinit var presenter: MenuPresenter
     private var viewMenu: View? = null
     private var user: UserInfo? = null
+    private lateinit var sheet: DemoBottomSheetFragment
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         viewMenu = inflater.inflate(R.layout.fragment_menu, container, false)
+        sheet = DemoBottomSheetFragment()
 
         onEvent(viewMenu)
 
@@ -52,8 +56,13 @@ class MenuFragment : Fragment(), MenuView.View {
         }
 
         view.help_click.setOnClickListener {
-            val intent = Intent(context!!, HelpActivity::class.java)
-            startActivity(intent)
+            //edit profile
+            sheet.image = user!!.imgURL
+            sheet.name = user!!.username
+            sheet.email = user!!.email
+            sheet.show(activity!!.supportFragmentManager, "DemoBottomSheetFragment")
+//            val intent = Intent(context!!, HelpActivity::class.java)
+//            startActivity(intent)
         }
 
         view.about_click.setOnClickListener {
@@ -64,6 +73,12 @@ class MenuFragment : Fragment(), MenuView.View {
         view.logout_click.setOnClickListener {
             this.logout()
         }
+
+        sheet.bottomSheetListener(object : FragmentCallBack.CalBackEditProfile {
+            override fun onSuccess(image: String, name: String) {
+                presenter.getUserInfo()
+            }
+        })
     }
 
     override fun responeUserInfo(dataUser: UserInfo) {

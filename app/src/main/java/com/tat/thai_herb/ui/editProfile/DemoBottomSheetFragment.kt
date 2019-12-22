@@ -15,7 +15,6 @@ import com.tat.thai_herb.listener.FragmentCallBack
 import com.tat.thai_herb.ui.editProfile.presenter.EditProfilePresenter
 import com.tat.thai_herb.utilty.dialog.DialogInterface
 import gun0912.tedimagepicker.builder.TedImagePicker
-import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.fragment_editprofile_sheet.view.*
 
 class DemoBottomSheetFragment : SuperBottomSheetFragment(), EditProfileView.View {
@@ -28,7 +27,7 @@ class DemoBottomSheetFragment : SuperBottomSheetFragment(), EditProfileView.View
     var name: String? = ""
     var email: String? = ""
 
-    private lateinit var mUri: Uri
+    private var mUri: Uri? = null
 
     private lateinit var callBack: FragmentCallBack.CalBackEditProfile
 
@@ -45,6 +44,7 @@ class DemoBottomSheetFragment : SuperBottomSheetFragment(), EditProfileView.View
         viewDemo = inflater.inflate(R.layout.fragment_editprofile_sheet, container, false)
         presenter = EditProfilePresenter(this)
         dialogManager = DialogManager()
+        presenter.getData()
 
         setupView(viewDemo)
 
@@ -69,9 +69,10 @@ class DemoBottomSheetFragment : SuperBottomSheetFragment(), EditProfileView.View
         view.btnCommit.setOnClickListener {
             hideKeyboard()
             presenter.updateData(
-                mUri
+                if (mUri != null) mUri!! else null
                 , view!!.editTextNameEdit.text.toString().trim()
-                , email!!
+                , email!!,
+                image!!
 
             )
 

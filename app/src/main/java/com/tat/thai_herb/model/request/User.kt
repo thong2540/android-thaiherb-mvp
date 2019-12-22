@@ -5,8 +5,8 @@ data class User(
     val email: String,
     val imgURL: String,
     val id: String,
-    val scoreFirst: String,
-    val scoreSecond: String,
-    val scoreThird: String
+    val scoreFirst: Int,
+    val scoreSecond: Int,
+    val scoreThird: Int
 
 )

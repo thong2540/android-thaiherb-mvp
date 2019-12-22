@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.tat.thai_herb.R
+import com.tat.thai_herb.utilty.game.quiz.ui.main.MainMemoryActivity
+import com.tat.thai_herb.utilty.game.quiz.ui.main.MainQuizActivity
 import kotlinx.android.synthetic.main.fragment_game.view.*
 
 class GameFragment : Fragment() {
@@ -32,9 +34,7 @@ class GameFragment : Fragment() {
 
         view!!.game2.setOnClickListener {
             try {
-                val intent: Intent =
-                    activity!!.packageManager.getLaunchIntentForPackage("com.DefaultCompany.MemoryHerbGame")
-                intent.addCategory(Intent.CATEGORY_LAUNCHER)
+                val intent = Intent(context!!,MainMemoryActivity::class.java)
                 startActivity(intent)
             } catch (e: NullPointerException) {
                 Toast.makeText(context, "ไม่สามารถเปิดเกม ได้", Toast.LENGTH_SHORT).show()
@@ -43,9 +43,7 @@ class GameFragment : Fragment() {
 
         view!!.game3.setOnClickListener {
             try {
-                val intent: Intent =
-                    activity!!.packageManager.getLaunchIntentForPackage("com.Wongrawee.HerbGame")
-                intent.addCategory(Intent.CATEGORY_LAUNCHER)
+                val intent = Intent(context!!,MainQuizActivity::class.java)
                 startActivity(intent)
             } catch (e: NullPointerException) {
                 Toast.makeText(context, "ไม่สามารถเปิดเกม ได้", Toast.LENGTH_SHORT).show()

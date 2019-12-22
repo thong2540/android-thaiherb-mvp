@@ -1,8 +1,8 @@
 package com.tat.thai_herb.ui.game.presenter
 
 import android.app.Activity
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.tat.thai_herb.R
 import com.tat.thai_herb.model.respone.DataGame
@@ -12,10 +12,12 @@ import com.tat.thai_herb.ui.game.GameView
 class GamePresenter(private val view: GameView.View) {
 
     private var databaseReference: DatabaseReference? = null
+    private var firebaseUser: FirebaseUser? = null
 
     internal var data: SearchList? = null
     private val list = arrayListOf<SearchList>()
     private val bit = arrayListOf<DataGame>()
+    private var nScroe = 0
 
 //    fun getDta() {
 //        list.clear()
@@ -36,7 +38,24 @@ class GamePresenter(private val view: GameView.View) {
 //        })
 //    }
 
-    fun mekeData(mActivity: Activity) {
+    fun getDta() {
+        firebaseUser = FirebaseAuth.getInstance().currentUser
+        databaseReference =
+            FirebaseDatabase.getInstance()
+                .getReference("NewUser")
+                .child(firebaseUser!!.uid)
+                .child("scoreFirst")
+        databaseReference!!.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                nScroe = dataSnapshot.getValue(Int::class.java)!!
+                view.setScore(nScroe)
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {}
+        })
+    }
+
+    fun mekeData() {
         bit.clear()
         bit.add(
             DataGame(

@@ -12,6 +12,7 @@ import com.tat.thai_herb.model.respone.DataGame
 import com.tat.thai_herb.model.respone.SearchList
 import com.tat.thai_herb.ui.game.adapter.JigsawAdapter
 import com.tat.thai_herb.ui.game.presenter.GamePresenter
+import com.tat.thai_herb.utilty.game.listener.GameListener
 import com.tat.thai_herb.utilty.game.puzzle.PuzzleActivity
 import kotlinx.android.synthetic.main.activity_jigsaw.*
 
@@ -28,10 +29,10 @@ class JigsawActivity : AppCompatActivity(), GameView.View {
         this.hideStatusBar()
         adapter = JigsawAdapter()
         presenter = GamePresenter(this)
-        presenter!!.mekeData(this@JigsawActivity)
+        presenter!!.getDta()
+        presenter!!.mekeData()
 
         setUpView()
-
         onEvent()
     }
 
@@ -66,15 +67,13 @@ class JigsawActivity : AppCompatActivity(), GameView.View {
         }
     }
 
-//    override fun respone(list: List<SearchList>) {
-//        itemList = list
-//        adapter.itemList = list
-//        adapter.notifyDataSetChanged()
-//    }
-
     override fun respone(list: List<DataGame>) {
         itemList = list
         adapter.itemList = list
-        adapter!!.notifyDataSetChanged()
+        adapter.notifyDataSetChanged()
+    }
+
+    override fun setScore(score: Int) {
+        text_score_game1.text = "score : $score"
     }
 }

@@ -10,6 +10,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import com.tat.thai_herb.model.request.User
+import com.tat.thai_herb.model.respone.UserInfo
 import com.tat.thai_herb.ui.editProfile.EditProfileView
 import java.util.*
 
@@ -17,13 +18,16 @@ class EditProfilePresenter(private val view: EditProfileView.View) {
     private var storageReference: StorageReference? = null
     private var databaseReference: DatabaseReference? = null
     private var firebaseUser: FirebaseUser? = null
+    internal var user: UserInfo? = null
 
     init {
         storageReference = FirebaseStorage.getInstance().reference
         firebaseUser = FirebaseAuth.getInstance().currentUser
+        databaseReference =
+            FirebaseDatabase.getInstance().getReference("NewUser").child(firebaseUser!!.uid)
     }
 
-    fun updateData(filePath: Uri, name: String, email: String) {
+    fun updateData(filePath: Uri?, name: String, email: String,part: String) {
         view.showeLoding()
         if (filePath != null) {
             val ref = storageReference?.child("uploads/" + UUID.randomUUID().toString())
@@ -46,23 +50,33 @@ class EditProfilePresenter(private val view: EditProfileView.View) {
 
             }
         } else {
-
+            setData(name, email, part)
         }
     }
 
-    private fun setData(name: String, email: String, part: String) {
-        databaseReference =
-            FirebaseDatabase.getInstance().getReference("NewUser").child(firebaseUser!!.uid)
+    fun getData(){
+        databaseReference!!.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(p0: DataSnapshot) {
+                user = p0.getValue(UserInfo::class.java)
+            }
 
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+        })
+
+    }
+
+    private fun setData(name: String, email: String, part: String) {
         databaseReference!!.setValue(
             User(
                 name,
                 email,
                 part,
                 firebaseUser!!.uid,
-                "0",
-                "0",
-                "0"
+                user!!.scoreFirst,
+                user!!.scoreSecond,
+                user!!.scoreThird
             )
         ).addOnCompleteListener {
             if (it.isSuccessful) {

@@ -69,9 +69,9 @@ class RegisterPersenter(private val view: RegisterView.View) {
                             email,
                             image,
                             userId,
-                            "0",
-                            "0",
-                            "0"
+                            0,
+                            0,
+                            0
                         )
                     )
                         .addOnCompleteListener {

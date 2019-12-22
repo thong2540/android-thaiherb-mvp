@@ -9,8 +9,8 @@ data class UserInfo(
     val email: String = "",
     val imgURL: String = "",
     val id: String = "",
-    val scoreFirst: String = "",
-    val scoreSecond: String = "",
-    val scoreThird: String = ""
+    val scoreFirst: Int = 0,
+    val scoreSecond: Int = 0,
+    val scoreThird: Int = 0
 
 )

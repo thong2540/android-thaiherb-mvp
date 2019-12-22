@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.DragEvent;
 import android.view.View;
@@ -16,15 +17,27 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.tat.thai_herb.R;
 import com.tat.thai_herb.utilty.game.adapter.PuzzleAdapter;
+import com.tat.thai_herb.utilty.game.listener.GameListener;
 import com.tat.thai_herb.utilty.game.models.Pieces;
 import com.tat.thai_herb.utilty.game.models.PuzzlePiece;
 
@@ -37,7 +50,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class PuzzleActivity extends AppCompatActivity {
     RelativeLayout relativeLayout;
     FrameLayout scrollView;
-    ImageView imageView;
+    ImageView imageView,image_show_title;
+    TextView text_time_jic;
     Context context;
     List<Pieces> piecesModelListMain = new ArrayList<Pieces>();
     HashMap<String, Pieces> piecesModelHashMap = new HashMap<String, Pieces>();
@@ -53,6 +67,19 @@ public class PuzzleActivity extends AppCompatActivity {
     int heightFinal;
     private int part;
 
+    private CountDownTimer timer;
+//    private GameListener gameListener;
+    private long countTime;
+    private int scroe;
+
+    private DatabaseReference databaseReference;
+    private FirebaseUser firebaseUser;
+    private int nScroe;
+
+//    public void setGameListener(GameListener listener){
+//        this.gameListener = listener;
+//    }
+
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,10 +89,17 @@ public class PuzzleActivity extends AppCompatActivity {
         if (getIntent() == null) return;
         Intent intent = getIntent();
         part = intent.getIntExtra("part", 0);
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("NewUser").child(firebaseUser.getUid()).child("scoreFirst");
 
 
         context = this;
         imageView = (ImageView) findViewById(R.id.frameImage);
+        image_show_title = (ImageView) findViewById(R.id.image_show_title);
+
+        //Time
+        text_time_jic = (TextView) findViewById(R.id.text_time_jic);
+
         scrollView = (FrameLayout) findViewById(R.id.scrollView);
         scrollView.setOnDragListener(new MyDragListener(null));
         relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
@@ -89,7 +123,7 @@ public class PuzzleActivity extends AppCompatActivity {
                             null,
                             widthFinal,
                             heightFinal,
-                            imageView,
+                            image_show_title,
                             "/puzzles/",
                             3,
                             3,
@@ -101,6 +135,57 @@ public class PuzzleActivity extends AppCompatActivity {
         });
 
         setPuzzleListAdapter();
+        setTime();
+        getData();
+    }
+
+    private void getData() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                nScroe = dataSnapshot.getValue(int.class);
+                System.out.println("SCORE " + nScroe);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void upData(int score){
+        int integer;
+        integer = (nScroe + score);
+        databaseReference.setValue(integer).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            finish();
+                        }
+                    },2000);
+                }
+            }
+        });
+
+    }
+
+    private void setTime() {
+        timer = new CountDownTimer(55000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                countTime = millisUntilFinished /1000;
+                text_time_jic.setText("" +countTime);
+            }
+            public void onFinish() {
+                Toast.makeText(getApplicationContext(), "หมดเวลาแล้วจ้าาา !!",
+                        Toast.LENGTH_LONG).show();
+                upData(10);
+            }
+        };
+        timer.start();
     }
 
     void hideStatusBar() {
@@ -266,14 +351,21 @@ public class PuzzleActivity extends AppCompatActivity {
                                 setPuzzleListAdapter();
                                 piecesModel = null;
                                 if (piecesModelListMain.size() == 0) {
+                                    timer.cancel();
+                                    if (countTime <= 50 && countTime > 40){
+                                        scroe = 100;
+                                    }else if (countTime <= 40 && countTime > 30) {
+                                        scroe = 80;
+                                    }else if (countTime <= 30 && countTime > 20) {
+                                        scroe = 50;
+                                    }else if (countTime <= 20 && countTime > 10) {
+                                        scroe = 35;
+                                    }else if (countTime <= 10 && countTime > 0) {
+                                        scroe = 20;
+                                    }
+
                                     Toast.makeText(getApplicationContext(), "SUCCESS !!", Toast.LENGTH_SHORT).show();
-                                    final Handler handler = new Handler();
-                                    handler.postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            finish();
-                                        }
-                                    }, 2000);
+                                    upData(scroe);
                                 } else {
                                     Toast.makeText(getApplicationContext(), "The correct Puzzle", Toast.LENGTH_SHORT).show();
                                 }

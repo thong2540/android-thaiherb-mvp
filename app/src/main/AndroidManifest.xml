@@ -15,8 +15,34 @@
             android:roundIcon="@drawable/logoapp"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.help.HelpActivity"></activity>
-        <activity android:name=".ui.about.AboutActivity" />
+        <activity
+                android:name="com.tat.thai_herb.utilty.game.quiz.ui.scene.MemorySceneOneActivity"
+                android:screenOrientation="landscape"
+                android:windowSoftInputMode="stateHidden" />
+        <activity
+                android:name="com.tat.thai_herb.utilty.game.quiz.ui.main.MainMemoryActivity"
+                android:screenOrientation="landscape"
+                android:windowSoftInputMode="stateHidden" />
+        <activity
+                android:name="com.tat.thai_herb.utilty.game.quiz.ui.scene.SceneTwoActivity"
+                android:screenOrientation="landscape"
+                android:windowSoftInputMode="stateHidden" />
+        <activity
+                android:name="com.tat.thai_herb.utilty.game.quiz.ui.scene.SceneOneActivity"
+                android:screenOrientation="landscape"
+                android:windowSoftInputMode="stateHidden" />
+        <activity
+                android:name="com.tat.thai_herb.utilty.game.quiz.ui.main.MainQuizActivity"
+                android:screenOrientation="landscape"
+                android:windowSoftInputMode="stateHidden" />
+        <activity
+                android:name=".ui.help.HelpActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateHidden" />
+        <activity
+                android:name=".ui.about.AboutActivity"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="stateHidden" />
         <activity
                 android:name=".ui.game.JigsawActivity"
                 android:screenOrientation="landscape"
