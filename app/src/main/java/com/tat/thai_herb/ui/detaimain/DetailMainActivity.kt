@@ -50,7 +50,7 @@ class DetailMainActivity : AppCompatActivity(), DetailMainView.View {
         //list
         listDataAdapter = ListDataAdapter()
         recyclerviewData.setHasFixedSize(true)
-        recyclerviewData.layoutManager = GridLayoutManager(this, 3)
+        recyclerviewData.layoutManager = GridLayoutManager(this, 2)
         listDataAdapter!!.mContext = this
         recyclerviewData.adapter = listDataAdapter
     }
@@ -72,10 +72,9 @@ class DetailMainActivity : AppCompatActivity(), DetailMainView.View {
         }
 
         headerAdapter!!.setOnClickHeader(object : ActionClickHeader {
-            override fun onClickList(key: String) {
+            override fun onClickList(position: Int) {
                 presenter.getDataList(
-                    childKey,
-                    key
+                    position
                 )
             }
 
@@ -89,7 +88,7 @@ class DetailMainActivity : AppCompatActivity(), DetailMainView.View {
                 setPresentDescriptionHerb(data)
             }
 
-            override fun onClickList(key: String) {
+            override fun onClickList(position: Int) {
 
             }
         })
@@ -109,8 +108,7 @@ class DetailMainActivity : AppCompatActivity(), DetailMainView.View {
         headerAdapter!!.notifyDataSetChanged()
 
         presenter.getDataList(
-            childKey,
-            listHeader[0]
+            0
         )
 
     }

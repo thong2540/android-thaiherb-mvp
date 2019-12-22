@@ -29,7 +29,7 @@ class HeaderAdapter : RecyclerView.Adapter<HeaderAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.textheader.text = listHeader[position]
         holder.textheader.setOnClickListener {
-            if (mClickHeader != null) mClickHeader!!.onClickList(listHeader[position])
+            if (mClickHeader != null) mClickHeader!!.onClickList(position)
             lastClickedPosition = position
             notifyDataSetChanged()
         }
