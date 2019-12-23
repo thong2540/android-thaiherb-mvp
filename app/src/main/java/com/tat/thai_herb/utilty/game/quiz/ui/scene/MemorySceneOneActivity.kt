@@ -272,7 +272,7 @@ class MemorySceneOneActivity : AppCompatActivity(),SceneView.View {
         mCount = 1
 
         score_memory_one.text = "score : $score"
-        showCount.text = "จำนวนข้อที่เหลือ : $itemCount"
+        showCount.text = "จำนวนคู่ที่เหลือ : $itemCount"
 
         mem1.setImageResource(def)
         mem2.setImageResource(def)

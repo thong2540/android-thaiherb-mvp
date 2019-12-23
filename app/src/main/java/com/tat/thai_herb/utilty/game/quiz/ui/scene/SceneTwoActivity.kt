@@ -223,11 +223,14 @@ class SceneTwoActivity : AppCompatActivity(),SceneView.View {
     private fun showDialogSuccess(title: String, des: String) {
         this.setSoundButton(SoundType.CORRECT)
         timer!!.cancel()
-        dialogGameManager.alertSuccess(
-            this,
-            title,
-            des
-        )
+
+        Handler().postDelayed({
+            dialogGameManager.alertSuccess(
+                this,
+                title,
+                des
+            )
+        }, 800)
 
         dialogGameManager.setOnDialogClickListener(object : DialogInterface.DialogCallBackListener {
             override fun onClickButton(id: Int) {
@@ -246,7 +249,7 @@ class SceneTwoActivity : AppCompatActivity(),SceneView.View {
         val  intent = intent
         val mScore = intent.getIntExtra("score",0)
 
-        presenter!!.setScoreMemory(score + mScore)
+        presenter!!.setScoreQuiz(score + mScore)
 
         dialogGameManager.alertQuiz(
             this,

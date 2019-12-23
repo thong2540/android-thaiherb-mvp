@@ -197,7 +197,7 @@ class SceneOneActivity : AppCompatActivity(),SceneView.View {
     }
 
     private fun checkError() {
-        this.setSoundButton(SoundType.WRONG)
+        setSoundButton(SoundType.WRONG)
         if (error == 1) {
             showDialogError("ตอบผิดจ้า ตอบใหม่ได้อีก 2 ครั้ง")
         } else if (error == 2) {
@@ -221,13 +221,15 @@ class SceneOneActivity : AppCompatActivity(),SceneView.View {
     }
 
     private fun showDialogSuccess(title: String, des: String) {
-        this.setSoundButton(SoundType.CORRECT)
+        setSoundButton(SoundType.CORRECT)
         timer!!.cancel()
-        dialogGameManager.alertSuccess(
-            this,
-            title,
-            des
-        )
+        Handler().postDelayed({
+            dialogGameManager.alertSuccess(
+                this,
+                title,
+                des
+            )
+        }, 800)
 
         dialogGameManager.setOnDialogClickListener(object : DialogInterface.DialogCallBackListener {
             override fun onClickButton(id: Int) {

@@ -16,6 +16,7 @@ import com.tat.thai_herb.model.respone.SearchList
 import com.tat.thai_herb.ui.description.DescriptionActivity
 import com.tat.thai_herb.ui.search.adapter.SearchAdapter
 import com.tat.thai_herb.ui.search.presenter.SearchPresenter
+import com.tat.thai_herb.utilty.ActivityTransition
 import com.tat.thai_herb.utilty.StatusbarManager
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.activity_search.view.*

@@ -12,7 +12,7 @@
     <LinearLayout
             android:id="@+id/le1"
             android:layout_width="120dp"
-            android:layout_height="180dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
         <ImageView
@@ -34,16 +34,17 @@
                 android:layout_marginTop="8dp"/>
 
         <TextView
+                android:layout_margin="4dp"
                 android:id="@+id/textClick"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/greyDark"
                 android:padding="5dp"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableRight="@drawable/ic_arrow_right"
                 android:drawableTint="@android:color/darker_gray"
-                android:text="คลิกเพื่อดูรายละเอียด"
-                android:textSize="10sp"/>
+                android:text="ดูรายละเอียด"
+                android:textSize="14sp"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

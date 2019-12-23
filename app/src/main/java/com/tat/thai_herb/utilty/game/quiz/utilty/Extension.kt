@@ -62,50 +62,60 @@ fun Activity.darkenStatusBarColor(bg: Int) {
 
 
 fun Activity.setSoundButton(type: SoundType) {
-    var sound: MediaPlayer
+    var sound: MediaPlayer? = null
 
     when(type){
         SoundType.BUTTON -> {
             sound = MediaPlayer.create(this, R.raw.sound_play_btn)
-            sound.start()
+            sound!!.start()
             Handler().postDelayed({
-                sound.stop()
+                sound!!.stop()
+                sound!!.release()
+                sound = null
             }, 500)
         }
         SoundType.MAIN -> {
             sound = MediaPlayer.create(this, R.raw.sound_main)
-            sound.isLooping = true
-            sound.start()
+            sound!!.isLooping = true
+            sound!!.start()
 //            Handler().postDelayed({
 //                sound.stop()
 //            }, 3400)
         }
         SoundType.WIN -> {
             sound = MediaPlayer.create(this, R.raw.sound_win)
-            sound.start()
+            sound!!.start()
             Handler().postDelayed({
-                sound.stop()
+                sound!!.stop()
+                sound!!.release()
+                sound = null
             }, 500)
         }
         SoundType.WRONG -> {
             sound = MediaPlayer.create(this, R.raw.sound_wrong)
-            sound.start()
+            sound!!.start()
             Handler().postDelayed({
-                sound.stop()
+                sound!!.stop()
+                sound!!.release()
+                sound = null
             }, 1000)
         }
         SoundType.TIME -> {
             sound = MediaPlayer.create(this, R.raw.sound_time)
-            sound.start()
+            sound!!.start()
             Handler().postDelayed({
-                sound.stop()
+                sound!!.stop()
+                sound!!.release()
+                sound = null
             }, 2000)
         }
         else -> {
             sound = MediaPlayer.create(this, R.raw.sound_correct)
-            sound.start()
+            sound!!.start()
             Handler().postDelayed({
-                sound.stop()
+                sound!!.stop()
+                sound!!.release()
+                sound = null
             }, 1000)
         }
     }

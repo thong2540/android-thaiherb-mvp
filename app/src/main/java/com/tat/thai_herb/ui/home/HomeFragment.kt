@@ -23,6 +23,7 @@ import com.tat.thai_herb.ui.home.adapter.HomeAdapter
 import com.tat.thai_herb.ui.home.adapter.SliderAdapter
 import com.tat.thai_herb.ui.home.presenter.HomePresenter
 import com.tat.thai_herb.ui.search.SearchActivity
+import com.tat.thai_herb.utilty.ActivityTransition
 import com.tat.thai_herb.utilty.StatusbarManager
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.header_toolbar_main.view.*
@@ -83,6 +84,7 @@ class HomeFragment : Fragment(), HomeView.View {
         view!!.editTextSearchHome.setOnClickListener {
             val intent = Intent(context, SearchActivity::class.java)
             startActivity(intent)
+            ActivityTransition.GoAnime(activity!!)
         }
 
         homeAdapter.setOnDataRecyclerViewListener(object : RecyclerViewCallBack {

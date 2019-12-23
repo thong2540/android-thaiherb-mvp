@@ -36,11 +36,11 @@ class ListDataAdapter : RecyclerView.Adapter<ListDataAdapter.ViewHolder>() {
         val detil: Detail = mData[position]
         val width: Int = Resources.getSystem().displayMetrics.widthPixels
 
+        holder.le1.layoutParams.width = (width/2.4).toInt()
         holder.textHerb.text = detil.title
         Glide
             .with(mContext!!)
             .load(detil.image)
-            .override(width/2,width/2)
             .into(holder.imgHerb)
         holder.itemView.setOnClickListener {
             if (mCallBack != null) mCallBack!!.onClickItem(mData[position])
