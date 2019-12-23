@@ -14,18 +14,23 @@ class ProfileActivity : AppCompatActivity() {
     private var images: String? = ""
     private var names: String? = ""
     private var email: String? = ""
-//    private lateinit var sheet: DemoBottomSheetFragment
+    private var scoreFirst = 0
+    private var scoreSecond = 0
+    private var scoreThird = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
-//        sheet = DemoBottomSheetFragment()
         this.darkenStatusBar()
         if (intent == null) return
         val  intent = intent
         images = intent.getStringExtra("image")
         names = intent.getStringExtra("name")
         email = intent.getStringExtra("email")
+
+        scoreFirst = intent.getIntExtra("scoreFirst",0)
+        scoreSecond = intent.getIntExtra("scoreSecond",0)
+        scoreThird = intent.getIntExtra("scoreThird",0)
 
         setupView()
 
@@ -41,6 +46,10 @@ class ProfileActivity : AppCompatActivity() {
 
         name_profile.text = names
         email_profile.text = email
+
+        g_j.text = "$scoreFirst คะแนน"
+        g_m.text = "$scoreSecond คะแนน"
+        g_q.text = "$scoreThird คะแนน"
     }
 
     private fun onEvent() {
@@ -48,20 +57,5 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
 
-//        linearLayout2.setOnClickListener {
-//            sheet.image = images
-//            sheet.name = names
-//            sheet.email = email
-//            sheet.show(supportFragmentManager, "DemoBottomSheetFragment")
-//
-//        }
-
-//        sheet.bottomSheetListener(object : FragmentCallBack.CalBackEditProfile {
-//            override fun onSuccess(image: String, name: String) {
-//                images = image
-//                names = name
-//                setupView()
-//            }
-//        })
     }
 }

@@ -93,7 +93,11 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+
+                android:layout_marginLeft="@dimen/margin_8_dp"
+                android:layout_marginRight="@dimen/margin_8_dp"
+                android:layout_marginTop="@dimen/margin_8_dp"
+                android:layout_marginBottom="24dp"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
@@ -121,6 +125,7 @@
                         android:textColor="#424242" />
 
                 <TextView
+                        android:id="@+id/g_j"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0 คะแนน" />
@@ -151,6 +156,7 @@
                         android:textColor="#424242" />
 
                 <TextView
+                        android:id="@+id/g_m"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0 คะแนน" />
@@ -181,6 +187,7 @@
                         android:textColor="#424242" />
 
                 <TextView
+                        android:id="@+id/g_q"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0 คะแนน" />

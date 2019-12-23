@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.tat.thai_herb.R
+import com.tat.thai_herb.ui.help.HelpActivity
 import com.tat.thai_herb.utilty.game.quiz.ui.main.MainMemoryActivity
 import com.tat.thai_herb.utilty.game.quiz.ui.main.MainQuizActivity
 import kotlinx.android.synthetic.main.fragment_game.view.*
@@ -49,5 +50,11 @@ class GameFragment : Fragment() {
                 Toast.makeText(context, "ไม่สามารถเปิดเกม ได้", Toast.LENGTH_SHORT).show()
             }
         }
+
+        view!!.click_help_game.setOnClickListener {
+            val intent = Intent(context!!, HelpActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

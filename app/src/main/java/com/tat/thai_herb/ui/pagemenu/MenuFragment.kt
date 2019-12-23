@@ -47,6 +47,9 @@ class MenuFragment : Fragment(), MenuView.View {
             intent.putExtra("image",user!!.imgURL)
             intent.putExtra("name",user!!.username)
             intent.putExtra("email",user!!.email)
+            intent.putExtra("scoreFirst",user!!.scoreFirst)
+            intent.putExtra("scoreSecond",user!!.scoreSecond)
+            intent.putExtra("scoreThird",user!!.scoreThird)
             startActivity(intent)
         }
 
@@ -61,8 +64,6 @@ class MenuFragment : Fragment(), MenuView.View {
             sheet.name = user!!.username
             sheet.email = user!!.email
             sheet.show(activity!!.supportFragmentManager, "DemoBottomSheetFragment")
-//            val intent = Intent(context!!, HelpActivity::class.java)
-//            startActivity(intent)
         }
 
         view.about_click.setOnClickListener {
