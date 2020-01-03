@@ -17,9 +17,16 @@ class GalleryAdapter : RecyclerView.Adapter<GalleryAdapter.ViewHolder>() {
     var itemList: List<ContentImage> = arrayListOf()
     private lateinit var listener: RecyclerViewCallBack
 
+    lateinit var callBack: (Int) -> Unit
+
     fun setOnDataRecyclerViewListener(listener: RecyclerViewCallBack) {
         this.listener = listener
     }
+
+    fun setOnClickRecyclerViewListener(callBack: (position: Int) -> Unit) {
+        this.callBack = callBack
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater
@@ -39,7 +46,8 @@ class GalleryAdapter : RecyclerView.Adapter<GalleryAdapter.ViewHolder>() {
             .into(holder.imgAllHerb)
 
         holder.itemView.setOnClickListener {
-            listener.onClickItem(position)
+//            listener.onClickItem(position)
+            callBack.invoke(position)
         }
     }
 

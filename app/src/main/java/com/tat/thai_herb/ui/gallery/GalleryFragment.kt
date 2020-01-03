@@ -50,18 +50,25 @@ class GalleryFragment : Fragment(),GalleryView.View {
     }
 
     private fun onEvent(view: View?) {
-        adapter.setOnDataRecyclerViewListener(object : RecyclerViewCallBack {
-            override fun onClickItem(position: Int) {
-                val intent = Intent(context,PresentImageActivity::class.java)
-                intent.putExtra("part",dataList[position].part)
-                intent.putExtra("name",dataList[position].name)
-                startActivity(intent)
-            }
+//        adapter.setOnDataRecyclerViewListener(object : RecyclerViewCallBack {
+//            override fun onClickItem(position: Int) {
+//                val intent = Intent(context,PresentImageActivity::class.java)
+//                intent.putExtra("part",dataList[position].part)
+//                intent.putExtra("name",dataList[position].name)
+//                startActivity(intent)
+//            }
+//
+//            override fun onPresentData(data: SymptomList) {
+//
+//            }
+//        })
 
-            override fun onPresentData(data: SymptomList) {
-
-            }
-        })
+        adapter.setOnClickRecyclerViewListener {
+            val intent = Intent(context,PresentImageActivity::class.java)
+            intent.putExtra("part",dataList[it].part)
+            intent.putExtra("name",dataList[it].name)
+            startActivity(intent)
+        }
     }
 
     override fun responeImage(part: List<ContentImage>) {
